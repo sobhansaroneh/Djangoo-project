@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2.extensions 
+
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'blog'
+
 ]
 
 MIDDLEWARE = [
@@ -75,8 +82,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
     }
 }
 
@@ -118,3 +128,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#ckeditor setting
+# static files
+
+STATIC_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+
+#CKeditor
+CKEDITOR_BASEDPATH = "/static/ckeditor/ckeditor"
+CKEDITOR_UPLOAD_PATH = "uploads/"

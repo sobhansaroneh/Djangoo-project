@@ -5,3 +5,7 @@ __pycashe__
 
 db.sqlite3
 blog/migrations
+
+files/
+
+.env
