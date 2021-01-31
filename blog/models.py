@@ -33,6 +33,3 @@ class Article(models.Model):
 class category(models.Model):
     title = models.CharField(max_length=128, null=False, blank=False)
     cover = models.FileField(upload_to='files/category_cover/' ,blank=False, null=False , validators=[validate_file_extension])
-
-    def __str__(self):
-        return self.title
