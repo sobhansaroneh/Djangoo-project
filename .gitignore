@@ -9,3 +9,5 @@ blog/migrations
 files/
 
 .env
+
+template_raw/
